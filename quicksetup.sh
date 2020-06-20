@@ -11,7 +11,8 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt install zip unzip
 echo $"Install vagrant\n"
-sudo apt-get install -y vagrant
+curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
+sudo apt install ./vagrant_2.2.6_x86_64.deb
 echo $'Install virtualbox\n'
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
