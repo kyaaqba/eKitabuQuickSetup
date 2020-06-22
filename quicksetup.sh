@@ -13,12 +13,8 @@ sudo apt install zip unzip
 echo $"Install vagrant\n"
 curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
 sudo apt install ./vagrant_2.2.6_x86_64.deb
-echo $'Install virtualbox\n'
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
-sudo apt -y update
-sudo apt install -y virtualbox-6.0
+echo $'Install virtualbox\n'\
+sudo apt install -y virtualbox
 echo $'Downloading vagrant box\n'
 fileid="1GF989-PJBgifZOVd0DgPEBvPRBWLIuWA"
 filename="virtualbox.zip"
@@ -33,7 +29,7 @@ read -r -s -p $'Press enter to continue...\n'
 sudo vagrant box add --name "webserver" --force ubuntu-18.04-0.1.box
 echo $"$(tput setaf 1) Use Vagrant to initialize the Virtual Machine\n"
 read -r -s -p $'Press enter to continue...\n'
-sudo vagrant init --force webserver
+sudo vagrant init webserver
 echo $"$(tput setaf 1) Start up the virtual machine\n"
 read -r -s -p $'Press enter to continue...\n'
 sudo vagrant up
